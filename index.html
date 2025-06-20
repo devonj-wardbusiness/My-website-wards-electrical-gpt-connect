@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wards Electric - Your Trusted Electrical Service</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .pricing-table th, .pricing-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .pricing-table th {
+            background: #f2f2f2;
+        }
+        .pricing-discounts {
+            margin-bottom: 15px;
+        }
+        .contact-form {
+            margin-top: 16px;
+        }
+        .contact-input {
+            padding: 8px;
+            width: 48%;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .contact-textarea {
+            padding: 8px;
+            width: 99%;
+            min-height: 60px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 8px;
+        }
+        .contact-btn {
+            width: 100%;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f8;
+            color: #222;
+        }
+        header {
+            background: #0074d9;
+            color: #fff;
+            padding: 0;
+            margin-bottom: 0;
+        }
+        .top-bar {
+            background: #ffb400;
+            color: #222;
+            text-align: center;
+            padding: 8px 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 5vw 16px 5vw;
+        }
+        .header-main img {
+            height: 60px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #ffb400;
+        }
+        .cta-btn {
+            background: #ffb400;
+            color: #222;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 24px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .cta-btn:hover {
+            background: #ffd966;
+        }
+        main {
+            max-width: 1100px;
+            margin: 32px auto 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 32px 5vw;
+        }
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        .hero-text {
+            flex: 2;
+        }
+        .hero-img {
+            flex: 1;
+            min-width: 220px;
+        }
+        .hero-img img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+            color: #0074d9;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 18px;
+        }
+        .services-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin: 32px 0;
+        }
+        .service-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            padding: 24px;
+            flex: 1 1 260px;
+            min-width: 220px;
+        }
+        .service-card h3 {
+            color: #0074d9;
+            margin-top: 0;
+        }
+        .contact-section {
+            background: #f4f6f8;
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+        .contact-section h2 {
+            color: #0074d9;
+        }
+        .contact-details {
+            font-size: 1.1em;
+            margin-bottom: 12px;
+        }
+        .contact-details a {
+            color: #0074d9;
+            text-decoration: none;
+        }
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 18px 0 10px 0;
+            margin-top: 40px;
+            font-size: 1em;
+        }
+        /* Chatbot styles */
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 320px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+        }
+        #chatbot-header {
+            background: #0074d9;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+        }
+        #chatbot-messages {
+            height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+            font-size: 14px;
+            background: #f9f9f9;
+            flex: 1;
+        }
+        #chatbot-input-area {
+            display: flex;
+            border-top: 1px solid #eee;
+        }
+        #chatbot-input {
+            flex: 1;
+            border: none;
+            padding: 10px;
+            border-radius: 0 0 0 8px;
+        }
+        #chatbot-send {
+            background: #0074d9;
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 0 0 8px 0;
+            cursor: pointer;
+        }
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; }
+            .header-main { flex-direction: column; gap: 16px; }
+            main { padding: 24px 2vw; }
+        }
+        @media (max-width: 600px) {
+            #chatbot-container { width: 98vw; right: 1vw; }
+            .service-card { min-width: 140px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            24/7 Emergency Service | Licensed & Insured | Serving El Paso County & Surrounding Areas
+        </div>
+        <div class="header-main">
+            <img src="https://cdn-icons-png.flaticon.com/512/1042/1042339.png" alt="Electric Bolt Through Receptacle Logo" />
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#chatbot-container" id="chat-link">Chat</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+19154870660" class="cta-btn">Call 915-487-0660</a>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Trusted Electricians in Colorado</h1>
+                <p>
+                    Wards Electric provides reliable, on-time, and professional electrical services for homes and businesses in El Paso and surrounding areas. From emergency repairs to new installations, our licensed electricians are here for you 24/7.
+                </p>
+                <a href="#contact" class="cta-btn">Request Service</a>
+            </div>
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1503389152951-9c3d029fd6a0?auto=format&fit=crop&w=600&q=80" alt="Residential Panel Upgrade">
+            </div>
+        </section>
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services-list">
+                <div class="service-card">
+                    <h3>Emergency Repairs</h3>
+                    <p>Fast response for power outages, electrical hazards, and urgent repairs—day or night.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Residential Services</h3>
+                    <p>Panel upgrades, lighting, outlets, ceiling fans, troubleshooting, and more for your home.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Commercial Services</h3>
+                    <p>Electrical maintenance, code compliance, tenant improvements, and new construction wiring.</p>
+                </div>
+                <div class="service-card">
+                    <h3>EV Charger Installation</h3>
+                    <p>Certified installation of electric vehicle charging stations for homes and businesses.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Lighting Upgrades</h3>
+                    <p>Energy-efficient LED upgrades, landscape lighting, and custom lighting solutions.</p>
+                </div>
+            </div>
+        </section>
+        <section id="pricing">
+            <h2>Our Competitive Electrical Pricing - Serving Colorado Springs</h2>
+            <p>We provide high-quality electrical services with transparent and competitive pricing. Our licensed and experienced electricians are dedicated to your safety and satisfaction.</p>
+
+            <h3>Service Call Fee:</h3>
+            <p>$65.00</p>
+
+            <h3>Hourly Rates:</h3>
+            <ul>
+                <li>Basic Electrical Services (e.g., outlet/switch replacement, fixture installation): $75 - $95 per hour</li>
+                <li>More Complex Repairs/Installations (e.g., circuit troubleshooting, wiring upgrades): $90 - $110 per hour</li>
+                <li>Emergency Services (After Hours/Weekends): $120 - $150 per hour (with a minimum charge)</li>
+            </ul>
+
+            <h3>Common Services - Flat Rate Pricing (Estimates - may vary based on specific circumstances):</h3>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Price</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Replace a Standard Light Fixture</td><td>$120 - $180</td><td>plus the cost of the fixture if not provided</td></tr>
+                    <tr><td>Replace a Standard Electrical Outlet or Switch</td><td>$80 - $150 per outlet/switch</td><td>includes basic materials</td></tr>
+                    <tr><td>Install a Ceiling Fan (pre-wired)</td><td>$150 - $250</td><td>plus the cost of the fan</td></tr>
+                    <tr>
+                        <td>Troubleshooting Electrical Issues</td>
+                        <td>$90 - $150 (first hour)</td>
+                        <td>then hourly rates apply</td>
+                    </tr>
+                    <tr><td>Install a Smoke Detector</td><td>$70 - $120 per detector</td><td>plus the cost of the detector</td></tr>
+                    <tr><td>Electrical Panel Inspection</td><td>$99 - $199</td><td></td></tr>
+                    <tr><td>Minor Electrical Repair (e.g., loose wire, reset breaker)</td><td>$100 - $250</td><td></td></tr>
+                </tbody>
+            </table>
+
+            <h3>Major Projects - Pricing based on a detailed quote:</h3>
+            <ul>
+                <li>Electrical Panel Upgrade/Replacement: Starting from $1,400 - $3,000+ (depending on the size and complexity)</li>
+                <li>Whole-House Rewiring: Priced per square foot or a comprehensive project quote.</li>
+                <li>EV Charger Installation: Starting from $500 - $1,200+ (depending on the charger type and existing electrical infrastructure)</li>
+                <li>New Circuit Installation: Starting from $250 - $600+ (depending on the location and complexity)</li>
+            </ul>
+
+            <h3>Discounts:</h3>
+            <ul class="pricing-discounts">
+                <li>Senior Citizen Discount: 5% off total service cost.</li>
+                <li>Military & First Responder Discount: 5% off total service cost.</li>
+                <li>New Customer Discount: $25 off your first service call over $100.</li>
+            </ul>
+
+            <h3>Important Notes:</h3>
+            <ul style="margin-bottom:15px;">
+                <li>Material costs are generally additional to the labor charges unless specified in a flat-rate service. We provide transparent pricing on all materials.</li>
+                <li>Permitting fees, if required for the job, will be quoted separately.</li>
+                <li>We will always provide a clear and upfront estimate before starting any work. You will know the cost before we begin.</li>
+                <li>Our work is backed by a satisfaction guarantee.</li>
+            </ul>
+
+            <h3>Why Choose Us?</h3>
+            <ul style="margin-bottom:15px;">
+                <li>Competitive Pricing: We strive to offer fair and competitive rates in the Colorado Springs market.</li>
+                <li>Experienced and Licensed Electricians: Our team is highly trained and dedicated to providing safe and reliable service.</li>
+                <li>Upfront and Transparent Pricing: No hidden fees or surprises.</li>
+                <li>Excellent Customer Service: We value your business and aim for complete satisfaction.</li>
+                <li>Timely Service: We respect your time and strive to be punctual for all appointments.</li>
+            </ul>
+
+            <p style="font-size:0.8em;color:#999;margin-top:20px;"><strong>Disclaimer:</strong> This price book is a general guideline and is subject to change without notice. The final price for any service will be based on the specifics of your individual needs. Please contact us for a free estimate.</p>
+        </section>
+        <section id="about">
+            <h2>About Wards Electric</h2>
+            <p>
+                Locally owned and operated, Wards Electric is committed to providing honest, high-quality electrical work with upfront pricing and satisfaction guaranteed. Our electricians are background-checked, drug-tested, and dedicated to your safety and comfort.
+            </p>
+        </section>
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <div class="contact-details">
+                <strong>Phone:</strong> <a href="tel:+19154870660">915-487-0660</a><br>
+                <strong>Email:</strong> <a href="mailto:Devonj.wardbusiness@gmail.com">Devonj.wardbusiness@gmail.com</a><br>
+                <strong>Hours:</strong> 24/7 Emergency Service Available
+            </div>
+            <form id="contact-form" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required class="contact-input">
+                <input type="email" name="email" placeholder="Your Email" required class="contact-input">
+                <textarea name="message" placeholder="How can we help you?" required class="contact-textarea"></textarea>
+                <button type="submit" class="cta-btn contact-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <!-- Chatbot Integration -->
+    <div id="chatbot-container">
+        <div id="chatbot-header">Chat with Us <span id="chatbot-close" style="float:right;cursor:pointer;">&times;</span></div>
+        <div id="chatbot-messages"></div>
+        <div id="chatbot-input-area">
+            <input type="text" id="chatbot-input" placeholder="Type your message..." autocomplete="off" />
+            <button id="chatbot-send">Send</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Wards Electric. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messages = document.getElementById('chatbot-messages');
+            const input = document.getElementById('chatbot-input');
+            const sendBtn = document.getElementById('chatbot-send');
+            const chatContainer = document.getElementById('chatbot-container');
+            const chatLink = document.getElementById('chat-link');
+            const chatClose = document.getElementById('chatbot-close');
+
+            // Backend URL (change to your deployed backend if not local)
+            const BACKEND_URL = "https://wards-electrical.app.n8n.cloud/webhook/a8c61230-8df7-4193-9bd6-4f614c24f23e/chat";
+
+            let step = 0;
+            let userData = {};
+
+            function appendMessage(sender, text) {
+                const msg = document.createElement('div');
+                msg.textContent = sender + ': ' + text;
+                messages.appendChild(msg);
+                messages.scrollTop = messages.scrollHeight;
+            }
+
+            function botReply(text) {
+                setTimeout(() => appendMessage('Dispatcher', text), 500);
+            }
+
+            function handleUserInput(userInput) {
+                if (step === 0) {
+                    userData = {};
+                    appendMessage('You', userInput);
+                    botReply("Hello! This is the dispatcher. What is your electrical issue or emergency?");
+                    step = 1;
+                } else if (step === 1) {
+                    userData.issue = userInput;
+                    appendMessage('You', userInput);
+                    botReply("Thank you. Can I have your name?");
+                    step = 2;
+                } else if (step === 2) {
+                    userData.name = userInput;
+                    appendMessage('You', userInput);
+                    botReply("Thanks, " + userInput + ". What is the address where service is needed?");
+                    step = 3;
+                } else if (step === 3) {
+                    userData.address = userInput;
+                    appendMessage('You', userInput);
+                    botReply("Got it. What is the best callback number?");
+                    step = 4;
+                } else if (step === 4) {
+                    userData.phone = userInput;
+                    appendMessage('You', userInput);
+                    botReply("Thank you! A dispatcher will contact you at " + userData.phone + " soon. If this is an emergency, please call us directly at 915-487-0660.");
+                    // Send SMS via backend
+                    fetch(BACKEND_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(userData)
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            botReply("Your information has been sent to our dispatcher via SMS.");
+                        } else {
+                            botReply("Sorry, there was a problem sending your information. Please call us directly.");
+                        }
+                    })
+                    .catch(() => {
+                        botReply("Sorry, there was a problem sending your information. Please call us directly.");
+                    });
+                    step = 5;
+                } else {
+                    appendMessage('You', userInput);
+                    botReply("If you need further assistance, please let us know or call our main line.");
+                }
+                input.value = '';
+            }
+
+            sendBtn.addEventListener('click', () => {
+                const userInput = input.value.trim();
+                if (userInput) {
+                    handleUserInput(userInput);
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') sendBtn.click();
+            });
+
+            chatLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                chatContainer.style.display = 'flex';
+                chatContainer.style.visibility = 'visible';
+                messages.innerHTML = '';
+                step = 0;
+                botReply("Welcome to Wards Electric! Click 'Send' or press Enter to begin.");
+                setTimeout(() => {
+                    input.focus();
+                }, 100);
+            });
+
+            chatClose.addEventListener('click', function() {
+                chatContainer.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

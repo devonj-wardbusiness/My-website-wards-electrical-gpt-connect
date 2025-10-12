@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -241,12 +240,74 @@
             #chatbot-container { width: 98vw; right: 1vw; }
             .service-card { min-width: 140px; }
         }
+
+        /*
+         * Side navigation styles
+         * A fixed vertical navigation bar on the left that stays visible
+         * on scroll. The main content is offset to the right to make room
+         * for the nav. The existing header nav is hidden to avoid duplication.
+         */
+        .side-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 220px;
+            background: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 80px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            z-index: 1001;
+        }
+        .side-nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            width: 100%;
+            display: block;
+            font-size: 1.1em;
+            transition: background 0.2s;
+        }
+        .side-nav a:hover {
+            background: #575757;
+        }
+        /* Offset the page content to make room for the side nav */
+        .main-content {
+            margin-left: 240px;
+        }
+        /* Hide the horizontal nav in the header when the side nav is present */
+        .header-main nav {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .side-nav {
+                width: 180px;
+                padding-top: 70px;
+            }
+            .main-content {
+                margin-left: 190px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Left-hand side navigation bar -->
+    <nav class="side-nav">
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#chatbot-container">Chat</a>
+    </nav>
+    <!-- Wrap the rest of the content -->
+    <div class="main-content">
     <header>
         <div class="top-bar">
-            24/7 Emergency Service | Licensed & Insured | Serving El Paso County & Surrounding Areas
+            24/7 Emergency Service | Licensed &amp; Insured | Serving El Paso County &amp; Surrounding Areas
         </div>
         <div class="header-main">
             <img src="https://cdn-icons-png.flaticon.com/512/1042/1042339.png" alt="Electric Bolt Through Receptacle Logo" />
@@ -272,7 +333,7 @@
                 <a href="#contact" class="cta-btn">Request Service</a>
             </div>
             <div class="hero-img">
-                <img src="https://images.unsplash.com/photo-1503389152951-9c3d029fd6a0?auto=format&fit=crop&w=600&q=80" alt="Residential Panel Upgrade">
+                <img src="https://images.unsplash.com/photo-1503389152951-9c3d029fd6a0?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Residential Panel Upgrade">
             </div>
         </section>
         <section id="services">
@@ -349,7 +410,7 @@
             <h3>Discounts:</h3>
             <ul class="pricing-discounts">
                 <li>Senior Citizen Discount: 5% off total service cost.</li>
-                <li>Military & First Responder Discount: 5% off total service cost.</li>
+                <li>Military &amp; First Responder Discount: 5% off total service cost.</li>
                 <li>New Customer Discount: $25 off your first service call over $100.</li>
             </ul>
 
@@ -405,6 +466,7 @@
     <footer>
         <p>&copy; 2023 Wards Electric. All rights reserved.</p>
     </footer>
+    </div><!-- end main-content wrapper -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const messages = document.getElementById('chatbot-messages');

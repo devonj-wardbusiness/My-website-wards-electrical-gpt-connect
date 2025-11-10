@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elevated by Wards Electrical | Colorado Springs Electricians — 24/7 Emergency & EV Chargers</title>
+  <meta name="description" content="Elevated by Wards Electrical — Licensed and insured electricians in Colorado Springs. Emergency repairs, troubleshooting, panel upgrades, lighting, and EV charger installs. Call 915-487-0660." />
+  <link rel="icon" href="assets/logo.jpg" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <meta property="og:title" content="Elevated by Wards Electrical — Trusted Electricians in Colorado Springs" />
+  <meta property="og:description" content="Emergency repairs, panel upgrades, lighting, EV chargers. Fast, code-compliant, and transparent pricing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo.jpg" />
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header>
+    <div class="top-bar" role="note">
+      24/7 Emergency Service • Licensed & Insured • Serving El Paso County & Surrounding Areas
+    </div>
+    <div class="header-main">
+      <a class="brand" href="#" aria-label="Elevated by Wards Electrical Home">
+        <img src="assets/logo.jpg" alt="Elevated by Wards Electrical logo" />
+        <span>Elevated by Wards Electrical</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="cta-btn" href="tel:+19154870660">Call 915-487-0660</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div>
+        <h1>Trusted Electricians in Colorado Springs</h1>
+        <p>Professional Electrical Services. Reliable, code-compliant electrical work for homes and businesses. From emergencies to EV chargers, we’ve got you covered.</p>
+        <div class="badges">
+          <span class="badge">Licensed & Insured</span>
+          <span class="badge">Same-Day Service</span>
+          <span class="badge">Upfront Pricing</span>
+        </div>
+        <p style="margin-top:10px;">
+          <a class="cta-btn" href="#contact">Request Service</a>
+        </p>
+      </div>
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1503389152951-9c3d029fd6a0?auto=format&fit=crop&w=900&q=80" alt="Residential electrical panel upgrade" />
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="services-list">
+        <div class="service-card"><h3>Emergency Repairs</h3><p>Fast response for hazards, outages, burning smells, and tripping breakers.</p></div>
+        <div class="service-card"><h3>Residential</h3><p>Panels, lighting, outlets, ceiling fans, surge protection, and troubleshooting.</p></div>
+        <div class="service-card"><h3>Commercial</h3><p>Maintenance, code compliance, tenant finish, dedicated circuits, lighting.</p></div>
+        <div class="service-card"><h3>EV Chargers</h3><p>Level 2 installs, panel checks, permits, and charger mounting & commissioning.</p></div>
+        <div class="service-card"><h3>Lighting Upgrades</h3><p>LED retrofits, can lights, under-cabinet, landscape, and smart controls.</p></div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>Transparent Pricing</h2>
+      <p>Straight-up pricing aligned with Colorado Springs market. Final quotes depend on site conditions.</p>
+      <h3>Service Call</h3><p>$65</p>
+      <h3>Hourly</h3>
+      <ul>
+        <li>Standard: $90–$110/hr</li>
+        <li>Emergency: $120–$150/hr (after hours/weekends)</li>
+      </ul>
+      <h3>Common Flat Rates (estimates)</h3>
+      <table class="pricing-table">
+        <thead><tr><th>Service</th><th>Price</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Replace Light Fixture</td><td>$120–$180</td><td>Fixture cost separate</td></tr>
+          <tr><td>Replace Outlet/Switch</td><td>$80–$150 ea.</td><td>Includes basic materials</td></tr>
+          <tr><td>Ceiling Fan (pre-wired)</td><td>$150–$250</td><td>Fan cost separate</td></tr>
+          <tr><td>Troubleshooting</td><td>$90–$150/hr</td><td>First hour minimum</td></tr>
+          <tr><td>Smoke Detector</td><td>$70–$120 ea.</td><td>Detector cost separate</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="about">
+      <h2>About Elevated by Wards Electrical</h2>
+      <p>Locally owned and operated. We deliver clean, code-compliant installs with straight talk and on-time arrivals. Background-checked and drug-tested techs.</p>
+    </section>
+
+    <section id="reviews">
+      <h2>Reviews & Service Area</h2>
+      <p class="help">We proudly serve Colorado Springs and El Paso County. See what customers say or leave us a review.</p>
+      <div class="grid-2" style="align-items:start;">
+        <div>
+          <div style="background:#0b2c530a;border:1px solid #0b2c531e;border-radius:12px;padding:14px;">
+            <h3 style="color:var(--brand)">Google Reviews</h3>
+            <p class="help">Love the work? Your review helps other homeowners find a trustworthy, code-compliant electrician.</p>
+            <p>
+              <a class="cta-btn" href="https://g.page/r/XXXXXXX/review" target="_blank">Leave a Review</a>
+              <a class="cta-btn" href="https://www.google.com/maps/search/?api=1&query=Elevated%20by%20Wards%20Electrical%20Colorado%20Springs" target="_blank" style="background:var(--electric);border:2px solid var(--brand);color:#06121f;">Open in Maps</a>
+            </p>
+          </div>
+        </div>
+        <div>
+          <iframe title="Service area map" width="100%" height="320" style="border:0;border-radius:12px" loading="lazy"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d813679.0286417698!2d-105.195!3d38.862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87134f0b9b0a9bbb%3A0x9f7d7f9d9d!2sColorado%20Springs%2C%20CO!5e0!3m2!1sen!2sus!4v1700000000000"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2>Contact Us</h2>
+      <form id="contact-form" method="POST" action="https://wards-electrical.app.n8n.cloud/webhook/2cae2b6c-d5da-4602-a0f4-cbd2859d7da5">
+        <div class="grid-2">
+          <div><label for="name">Full Name</label><input id="name" name="name" required /></div>
+          <div><label for="email">Email</label><input id="email" name="email" type="email" required /></div>
+          <div><label for="phone">Phone</label><input id="phone" name="phone" required /></div>
+          <div><label for="address">Service Address</label><input id="address" name="address" /></div>
+        </div>
+        <label for="message">How can we help?</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit" class="cta-btn">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Elevated by Wards Electrical.</p></footer>
+</body>
+</html>

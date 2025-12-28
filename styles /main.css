@@ -295,7 +295,17 @@ a:hover{filter:brightness(1.1)}
 }
 
 /* Modal */
-.modal{position:fixed; inset:0; display:none; z-index:3000}
+body.modal-open{
+  overflow: hidden;
+}
+.modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 3000;
+  height: 100vh;
+  overflow-y: auto;
+}
 .modal.is-open{display:block}
 .modal__backdrop{
   position:absolute; inset:0;

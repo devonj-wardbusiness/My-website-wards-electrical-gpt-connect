@@ -308,7 +308,8 @@ a:hover{filter:brightness(1.1)}
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 18px 60px rgba(0,0,0,.45);
-  overflow:hidden;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
 }
 .modal__head{
   display:flex;
@@ -329,7 +330,11 @@ a:hover{filter:brightness(1.1)}
 }
 .x:hover{background: rgba(0,0,0,.05)}
 
-.form{padding: 14px 16px}
+.form{
+  padding: 14px 16px;
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+}
 .grid{
   display:grid;
   grid-template-columns: 1fr 1fr;

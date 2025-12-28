@@ -11,6 +11,9 @@
     <section id="about">
       <h2>About Elevated by Wards Electrical</h2>
       <p>Locally owned and operated. We deliver clean, code-compliant installs with straight talk and on-time arrivals. Background-checked and drug-tested techs.</p>
+        <p style="text-align: center; margin-top: 20px;">
+          <button class="cta-btn" data-modal-trigger="booking" style="cursor: pointer;">Book in 60 Seconds</button>
+        </p>
     </section>
 
     <section id="reviews">
@@ -51,4 +54,88 @@
   </main>
 
   <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Elevated by Wards Electrical.</p></footer>
+      <!-- Booking Modal -->
+      <div class="modal" id="bookingModal">
+        <div class="modal__backdrop" id="modalBackdrop"></div>
+        <div class="modal__panel">
+          <div class="modal__head">
+            <h3>Book in 60 Seconds</h3>
+            <button class="x" id="closeModal" aria-label="Close modal"></button>
+          </div>
+          <form class="form" id="booking-form" method="POST" action="https://wards-electrical.app.n8n.cloud/webhook/2cae2b6c-d5da-4602-a0f4-cbd2859d7da5">
+            <div class="grid">
+              <div><label for="book-name">Name</label><input id="book-name" name="name" required /></div>
+              <div><label for="book-email">Email</label><input id="book-email" name="email" type="email" required /></div>
+            </div>
+            <div class="grid">
+              <div><label for="book-phone">Phone</label><input id="book-phone" name="phone" required /></div>
+              <div><label for="book-address">Service Address</label><input id="book-address" name="address" /></div>
+            </div>
+            <label for="book-service">Service Needed</label>
+            <select id="book-service" name="service" required>
+              <option value="">Select a service...</option>
+              <option value="General Inspection">General Inspection</option>
+              <option value="Light Fixture">Replace Light Fixture</option>
+              <option value="Outlet/Switch">Replace Outlet/Switch</option>
+              <option value="Ceiling Fan">Ceiling Fan Installation</option>
+              <option value="Troubleshooting">Troubleshooting</option>
+              <option value="Smoke Detector">Smoke Detector</option>
+              <option value="Other">Other</option>
+            </select>
+            <label for="book-preferred-day">Preferred Day</label>
+            <select id="book-preferred-day" name="preferredDay" required>
+              <option value="">Select a day...</option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+            </select>
+            <label><input type="checkbox" name="consent" required /> I consent to be contacted about my booking</label>
+            <div class="form__actions">
+              <button type="submit" class="cta-btn">Book Now</button>
+              <button type="button" class="cta-btn" style="background: #999;" id="cancelModal">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  <script>
+    // Modal elements
+    const modal = document.getElementById('bookingModal');
+    const closeModal = document.getElementById('closeModal');
+    const cancelModal = document.getElementById('cancelModal');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    
+    // Function to open modal
+    function openModal() {
+      modal.classList.add('is-open');
+      document.body.classList.add('modal-open');
+    }
+    
+    // Function to close modal
+    function closeBookingModal() {
+      modal.classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+    }
+    
+    // Event listeners
+    closeModal.addEventListener('click', closeBookingModal);
+    cancelModal.addEventListener('click', closeBookingModal);
+    
+    // Close modal when clicking backdrop
+    modalBackdrop.addEventListener('click', closeBookingModal);
+    
+    // Open modal with any booking button (add data-modal-trigger="booking" to buttons)
+    document.querySelectorAll('[data-modal-trigger="booking"]').forEach(btn => {
+      btn.addEventListener('click', openModal);
+    });
+    
+    // Close modal when form is submitted
+    document.getElementById('booking-form').addEventListener('submit', function(e) {
+      // Form will submit but you can add additional logic here if needed
+      // The form will close after submission via the action endpoint
+      closeBookingModal();
+    });
+  </script>
 </body>

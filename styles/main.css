@@ -9,6 +9,11 @@
   --soft: rgba(242,193,78,.08);
   --border: rgba(242,193,78,.16);
   --shadow: 0 10px 30px rgba(0,0,0,.25);
+  /* Card system */
+  --card-bg: rgba(31,41,51,0.72);
+  --card-border: rgba(201,209,217,0.14);
+  --card-shadow: 0 10px 30px rgba(0,0,0,0.30);
+  --card-radius: 16px;
 }
 
 *{box-sizing:border-box}
@@ -72,7 +77,7 @@ a:hover{color:var(--electric)}
 }
 
 /* Header */
-.site-header{background: var(--brand); color:#fff}
+.site-header{background-color: rgba(7,14,26,0.92); backdrop-filter: blur(6px); color:#fff}
 .top-bar{
   background: var(--accent);
   color: var(--brand);
@@ -90,7 +95,14 @@ a:hover{color:var(--electric)}
   gap: 18px;
   padding: 18px 5vw;
 }
-.brand{display:flex; align-items:center; gap:12px; color:var(--text)}
+.brand{display:flex; align-items:center; gap:12px; color:#FFFFFF}
+.brand, .brand__name, .brand__text {
+  color: #FFFFFF;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+.brand__name { text-transform: none }
 .brand img{height:56px; width:auto; border-radius:10px}
 .brand__text{display:flex; flex-direction:column; line-height:1.1}
 .brand__name{font-weight:900; letter-spacing:.3px}
@@ -152,15 +164,36 @@ a:hover{color:var(--electric)}
 }
 .subhead{margin: 0 0 14px; font-size: 1.08rem; color:var(--muted)}
 .trust{display:flex; flex-wrap:wrap; gap:8px; margin: 10px 0 14px}
-.pill{
-  background: var(--soft);
-  border: 1px solid var(--border);
-  color: var(--brand);
-  font-weight: 900;
-  padding: 6px 10px;
+.pill,
+.badge,
+.chip,
+.tag,
+.feature-pill,
+.bubble {
+  background: rgba(31,41,51,0.85);
+  border: 1px solid rgba(242,193,78,0.35);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  padding: 10px 14px;
   border-radius: 999px;
-  font-size: .9rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.35);
 }
+.pill:hover,
+.badge:hover,
+.chip:hover,
+.tag:hover,
+.feature-pill:hover,
+.bubble:hover {
+  background: rgba(31,41,51,0.95);
+  border-color: rgba(47,184,255,0.55);
+  color: #FFFFFF;
+}
+.pill svg, .pill i, .badge svg, .badge i { color: #F2C14E }
 .hero__actions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 6px}
 
 .mini{
@@ -170,17 +203,19 @@ a:hover{color:var(--electric)}
   margin-top: 14px;
 }
 .mini__item{
-  background: rgba(31,41,51,.05);
-  border: 1px solid rgba(31,41,51,.12);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 10px 12px;
 }
-.mini__title{font-weight: 950; color: var(--brand); font-size: .88rem; margin-bottom: 2px}
+.mini__title{font-weight:700; color:#FFFFFF; font-size: .88rem; margin-bottom: 2px}
+.mini__value{color:var(--muted)}
 
 .hero__card{
-  background: rgba(31,41,51,.06);
-  border: 1px solid rgba(31,41,51,.12);
-  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
   overflow:hidden;
 }
 .hero__image{
@@ -202,17 +237,65 @@ a:hover{color:var(--electric)}
 .hero__cardBody{padding: 16px}
 .h3{margin:0 0 6px; color: var(--accent)}
 .muted{color: var(--muted)}
+
+/* Trust / Why Us readability */
+.section-head h2, .why h2 { color: var(--accent); font-weight: 800 }
+.section .muted,
+.section--alt .muted,
+.trust,
+.list,
+.check,
+.section-head p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+.check { font-weight: 700 }
+
+/* Contact section specifics */
+#contact .section-head h2 {
+  color: #FFFFFF;
+  font-weight: 800;
+}
+#contact .section-head p {
+  color: var(--muted);
+}
+
+/* Contact card headings and labels */
+.contactCard h3 {
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+}
+
+/* Contact paragraph formatting: bold lead + normal follow */
+.contactCard .contact-lead {
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.5;
+}
+.contactCard .contact-normal {
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Ensure right card hierarchy */
+.contactCard + .contactCard, .contactCard {
+  /* headings already set above; keep text readable */
+}
+
 .small{font-size:.92rem}
 
 /* Sections */
 .section{margin-top: 30px}
 .section--alt{
-  background: rgba(11,44,83,.04);
-  border: 1px solid rgba(11,44,83,.10);
-  border-radius: 16px;
+  background: rgba(31,41,51,0.55);
+  border: 1px solid rgba(201,209,217,0.10);
+  border-radius: 18px;
   padding: 18px;
 }
-.section-head h2{margin:0; color: var(--brand)}
+.section-head h2{margin:0; color: var(--accent)}
 .section-head p{margin:6px 0 0}
 
 /* Cards */
@@ -222,14 +305,51 @@ a:hover{color:var(--electric)}
   gap: 14px;
   margin-top: 14px;
 }
-.card{
-  background: rgba(11,44,83,.06);
-  border: 1px solid rgba(11,44,83,.14);
-  border-radius: 14px;
+.card,
+.pricing__box,
+.contactCard,
+.ctaPanel,
+.hero__card,
+.modal__panel,
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
   padding: 14px;
+  box-shadow: var(--card-shadow);
 }
-.card h3{margin:0 0 6px; color: var(--brand)}
-.card p{margin:0}
+.card h3,
+.pricing__box h3,
+.contactCard h3,
+.ctaPanel h3,
+.hero__card h2 { margin:0 0 6px; color: var(--text) }
+.card p,
+.pricing__box p,
+.contactCard p,
+.ctaPanel p { color: var(--muted) }
+
+/* Hover lift for clickable cards (subtle) */
+.card:hover,
+.pricing__box:hover,
+.ctaPanel:hover,
+.hero__card:hover {
+  /* Neutralize global hover-lift: no movement by default */
+  transform: none;
+  box-shadow: var(--card-shadow);
+  border-color: var(--card-border);
+  transition: none;
+}
+
+/* Explicit clickable card utility: add this class only to interactive cards */
+.card-clickable {
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.card-clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.35);
+  border-color: rgba(242,193,78,0.28);
+}
 
 /* Split */
 .split{
@@ -240,18 +360,14 @@ a:hover{color:var(--electric)}
 }
 .list{display:grid; gap:10px}
 .check{
-  background:#fff;
-  border: 1px solid rgba(11,44,83,.12);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 10px 12px;
   font-weight: 750;
+  color: var(--text);
 }
-.ctaPanel{
-  background:#fff;
-  border: 1px solid rgba(11,44,83,.14);
-  border-radius: 14px;
-  padding: 14px;
-}
+.ctaPanel{ padding:14px }
 .ctaPanel__row{display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:10px}
 
 /* Pricing */
@@ -262,9 +378,9 @@ a:hover{color:var(--electric)}
   margin-top: 14px;
 }
 .pricing__box{
-  background: rgba(11,44,83,.06);
-  border: 1px solid rgba(11,44,83,.14);
-  border-radius: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
   padding: 14px;
 }
 .price{font-size: 1.6rem; font-weight: 950; color: var(--brand); margin: 6px 0}
@@ -277,8 +393,8 @@ a:hover{color:var(--electric)}
   margin-top: 14px;
 }
 .contactCard{
-  background:#fff;
-  border: 1px solid rgba(11,44,83,.12);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 14px;
 }
@@ -317,9 +433,10 @@ body.modal-open{
   position: relative;
   max-width: 860px;
   margin: 70px auto;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 18px 60px rgba(0,0,0,.45);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
   max-height: calc(100vh - 60px);
   overflow-y: auto;
 }
